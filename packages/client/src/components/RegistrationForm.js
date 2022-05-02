@@ -32,45 +32,35 @@ const validationSchema = yup.object({
   email: yup.string().required().label("Email"),
 });
 
-export const RegistrationForm = ({ id, initialValues, onClose }) => {
-  const mutation = id !== undefined ? ADD_USER : ADD_USER;
-
-  const [addUser, { loading, error }] = useMutation(mutation, {
+export const RegistrationForm = () => {
+  const [addUser, { loading, error }] = useMutation(ADD_USER, {
     onCompleted: () => {
-      if (onClose !== undefined) onClose();
     },
   });
-  const {
-    values,
-    errors,
-    handleSubmit,
-    handleBlur,
-    handleChange,
-    isValid,
-  } = useFormik({
-    initialValues,
-    validationSchema,
-    onSubmit: async (values, helpers) => {
-      console.log(values, helpers);
+  const { values, errors, handleSubmit, handleBlur, handleChange, isValid } =
+    useFormik({
+      initialValues,
+      validationSchema,
+      onSubmit: async (values, helpers) => {
+        console.log(values, helpers);
 
-      const { name, email, address, state, zip, city } = values;
-      const input = {
-        name,
-        email,
-        address,
-        state,
-        zip,
-        city,
-      };
+        const { name, email, address, state, zip, city } = values;
+        const input = {
+          name,
+          email,
+          address,
+          state,
+          zip,
+          city,
+        };
 
-      await addUser({
-        variables: {
-          id,
-          input,
-        },
-      });
-    },
-  });
+        await addUser({
+          variables: {
+            input,
+          },
+        });
+      },
+    });
 
   return (
     <form onSubmit={handleSubmit}>

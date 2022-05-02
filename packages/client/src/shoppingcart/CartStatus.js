@@ -2,13 +2,8 @@ import { Badge, Button, Tooltip } from "@mui/material";
 import React from "react";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import { useNavigate } from "react-router-dom";
-//import { isStyledComponent } from "styled-components";
 import { useCart } from "./CartContext";
 
-/*const Wrapper = isStyledComponent.div`
-  padding: 1rem;
-  cursor: pointer;
-`;*/
 
 export const CartStatus = () => {
   const { hasItems, itemCount } = useCart();
@@ -21,7 +16,7 @@ export const CartStatus = () => {
         hasItems ? `Click to see contents` : "You have no items in your cart"
       }
     >
-      <Button onClick={handleClick} hasItems={hasItems}>
+      <Button onClick={handleClick}>
         <Badge badgeContent={itemCount} color="primary">
           <ShoppingCartIcon>shopping_cart</ShoppingCartIcon>
         </Badge>

@@ -15,3 +15,13 @@ export const GET_MEAL_CATEGORIES = gql`
     }
   }
 `;
+
+export const GET_FOOD_ITEM = gql`
+  query GET_FOOD_ITEM($id: ID!) {
+    foodItem(id: $id) {
+      id
+      title
+      price
+    }
+  }
+`;

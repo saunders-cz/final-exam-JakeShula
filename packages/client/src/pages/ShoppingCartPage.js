@@ -5,6 +5,7 @@ import { useCart } from "../shoppingcart/CartContext";
 
 export const ShoppingCartPage = () => {
   const { hasItems } = useCart();
+  console.log(hasItems);
   return (
     <Grid container direction="column" spacing={2}>
       <Grid item>

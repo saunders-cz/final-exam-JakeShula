@@ -4,6 +4,7 @@ import "./index.css";
 import reportWebVitals from "./reportWebVitals";
 import { Router } from "./Router";
 import { ApolloClient, ApolloProvider, InMemoryCache } from "@apollo/client";
+import { CartProvider } from "./shoppingcart/CartContext";
 
 const client = new ApolloClient({
   uri: "/graphql/",
@@ -13,7 +14,9 @@ const client = new ApolloClient({
 ReactDOM.render(
   <React.StrictMode>
     <ApolloProvider client={client}>
-      <Router />
+      <CartProvider>
+        <Router />
+      </CartProvider>
     </ApolloProvider>
   </React.StrictMode>,
   document.getElementById("root")

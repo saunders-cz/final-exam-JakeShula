@@ -3,8 +3,8 @@ import AddIcon from "@mui/icons-material/Add";
 import RemoveIcon from "@mui/icons-material/Remove";
 import DeleteForeverIcon from "@mui/icons-material/DeleteForever";
 import React from "react";
-import { meals } from "../mealData/meals.js";
 import { useCart } from "./CartContext";
+import { meals } from "../mealData/meals.js";
 
 const getFoodItem = (id) => {
   return meals.find((fi) => fi.id === id);
@@ -12,7 +12,8 @@ const getFoodItem = (id) => {
 
 export const CartContentsDetail = () => {
   const cart = useCart();
-  const { items, updateItemQuantity } = cart;
+  console.log(cart);
+  const { items, updateItemQuantity, title, price } = cart;
   return (
     <Grid container style={{ maxWidth: 400 }} direction="column">
       {items.map((item, i) => {
@@ -27,7 +28,7 @@ export const CartContentsDetail = () => {
           >
             <Grid item>
               <Typography variant="body1" gutterBottom>
-                {meals.title} x {item.qty} @ ${meals.price}
+                {title} x {item.qty} @ ${price}
               </Typography>
             </Grid>
             <Grid item>
