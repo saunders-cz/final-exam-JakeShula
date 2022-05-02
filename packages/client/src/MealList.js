@@ -6,6 +6,7 @@ import {
   CardContent,
   CardMedia,
   Divider,
+  Button,
 } from "@mui/material";
 
 export const MealList = ({ meals }) => {
@@ -26,6 +27,7 @@ export const MealList = ({ meals }) => {
               </Divider>
               <Typography> {meal.description}</Typography>
               <Typography> ${meal.price}</Typography>
+              <Button>ADD TO ORDER</Button>
             </CardContent>
           </Card>
         </Grid>

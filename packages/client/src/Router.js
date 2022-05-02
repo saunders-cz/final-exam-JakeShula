@@ -6,8 +6,6 @@ import { HomePage } from "./pages/HomePage.js";
 import { MenuPage } from "./pages/MenuPage.js";
 import { RegistrationPage } from "./pages/RegistrationPage.js";
 import { ManageMenuPage } from "./pages/ManageMenuPage.js";
-import { MealList } from "./MealList";
-import { MealsPage } from "./pages/MealsPage";
 
 export const Router = () => {
   return (
@@ -15,10 +13,7 @@ export const Router = () => {
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<HomePage />} />
-          <Route path="meals">
-            <Route index element={<MealsPage />} />
-            <Route path="id" element={<ManageMenuPage />} />
-          </Route>
+          <Route path="meals/:id" element={<ManageMenuPage />} />
           <Route path="Menu" element={<MenuPage />} />
           <Route path="ManageMenu" element={<ManageMenuPage />} />
           <Route path="Registration" element={<RegistrationPage />} />
