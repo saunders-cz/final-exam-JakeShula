@@ -14,10 +14,9 @@ export const Navigation = () => {
       <Grid item>
         <Link to="/managemenu">Manage Menu</Link>
       </Grid>
+      <Grid item>
+        <Link to="/registration">Registration</Link>
+      </Grid>
     </Grid>
   );
 };
-
-/*<Grid item>
-<Link to="/registration">Registration</Link>
-</Grid>*/

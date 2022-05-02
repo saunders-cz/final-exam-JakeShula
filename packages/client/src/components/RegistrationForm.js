@@ -2,7 +2,7 @@ import { Button, Container, Grid, TextField, Typography } from "@mui/material";
 import Checkbox from "@mui/material/Checkbox";
 import { useFormik } from "formik";
 import * as yup from "yup";
-import { ADD_USER, UPDATE_USER } from "../user/mutations";
+import { ADD_USER } from "../user/mutations";
 import { useMutation } from "@apollo/client";
 
 const label = { inputProps: { "aria-label": "Checkbox demo" } };
@@ -33,9 +33,9 @@ const validationSchema = yup.object({
 });
 
 export const RegistrationForm = ({ id, initialValues, onClose }) => {
-  const mutation = id !== undefined ? UPDATE_USER : ADD_USER;
+  const mutation = id !== undefined ? ADD_USER : ADD_USER;
 
-  const [saveUser, { loading, error }] = useMutation(mutation, {
+  const [addUser, { loading, error }] = useMutation(mutation, {
     onCompleted: () => {
       if (onClose !== undefined) onClose();
     },
@@ -44,7 +44,6 @@ export const RegistrationForm = ({ id, initialValues, onClose }) => {
     values,
     errors,
     handleSubmit,
-    handleReset,
     handleBlur,
     handleChange,
     isValid,
@@ -64,7 +63,7 @@ export const RegistrationForm = ({ id, initialValues, onClose }) => {
         city,
       };
 
-      await saveUser({
+      await addUser({
         variables: {
           id,
           input,
@@ -74,7 +73,7 @@ export const RegistrationForm = ({ id, initialValues, onClose }) => {
   });
 
   return (
-    <form onSubmit={handleSubmit} onReset={handleReset}>
+    <form onSubmit={handleSubmit}>
       <Container>
         <Grid container spacing={2}>
           <Grid item xs={12}>

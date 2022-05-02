@@ -15,7 +15,7 @@ export const HomePage = () => {
         <Typography variant="h1">Shula's Family Restaurant</Typography>
         <Typography variant="h6">Quality Italian Cuisine Since 1947</Typography>
       </Grid>
-
+      <img src="img/Shop.jpg" width="550" height="300" alt="restuarant" />
       <Grid item xs={12}>
         <Grid container spacing={2}>
           <Grid item xs={9}>

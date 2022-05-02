@@ -6,6 +6,7 @@ import { HomePage } from "./pages/HomePage.js";
 import { MenuPage } from "./pages/MenuPage.js";
 import { RegistrationPage } from "./pages/RegistrationPage.js";
 import { ManageMenuPage } from "./pages/ManageMenuPage.js";
+import { ShoppingCartPage } from "./pages/ShoppingCartPage.js";
 
 export const Router = () => {
   return (
@@ -17,6 +18,7 @@ export const Router = () => {
           <Route path="Menu" element={<MenuPage />} />
           <Route path="ManageMenu" element={<ManageMenuPage />} />
           <Route path="Registration" element={<RegistrationPage />} />
+          <Route path="cart" element={<ShoppingCartPage />} />
         </Route>
       </Routes>
     </BrowserRouter>

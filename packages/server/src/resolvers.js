@@ -1,4 +1,4 @@
-import { Meal, Category } from "./models.js";
+import { Meal, Category, User } from "./models.js";
 import { meals } from "../data/meals.js";
 
 export const resolvers = {
@@ -15,6 +15,7 @@ export const resolvers = {
     categories: async () => {
       return await Category.findAll({ include: Meal });
     },
+    user: async (_, { id }) => await User.findByPk(id),
   },
   Mutation: {
     addMeal: async (parent, args) => {

@@ -39,12 +39,6 @@ export const typeDefs = gql`
     errors: [Error]
   }
 
-  type Query {
-    meals: [Meal]
-    meal(id: ID!): Meal
-    categories: [Category]
-  }
-
   type Mutation {
     addMeal(input: MealInput!): Result
     addUser(input: CreateUserInput!): BaseResponse
@@ -69,5 +63,12 @@ export const typeDefs = gql`
     city: String!
     state: String!
     zip: String!
+  }
+
+  type Query {
+    meals: [Meal]
+    meal(id: ID!): Meal
+    categories: [Category]
+    user(id: ID!): User
   }
 `;

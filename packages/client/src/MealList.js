@@ -8,8 +8,13 @@ import {
   Divider,
   Button,
 } from "@mui/material";
+import { useCart } from "./shoppingcart/CartContext";
 
 export const MealList = ({ meals }) => {
+  const { id, title, description, price } = meals;
+  const cart = useCart();
+
+  const onAddItem = (itemId) => cart.addItem(itemId);
   return (
     <Grid container spacing={4}>
       {meals.map((meal, i) => (
@@ -27,7 +32,7 @@ export const MealList = ({ meals }) => {
               </Divider>
               <Typography> {meal.description}</Typography>
               <Typography> ${meal.price}</Typography>
-              <Button>ADD TO ORDER</Button>
+              <Button onClick={() => onAddItem(id)}>ADD TO ORDER</Button>
             </CardContent>
           </Card>
         </Grid>
