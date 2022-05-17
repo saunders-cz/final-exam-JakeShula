@@ -1,14 +1,25 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import React from "react";
+import ReactDOM from "react-dom";
+import "./index.css";
+import reportWebVitals from "./reportWebVitals";
+import { Router } from "./Router";
+import { ApolloClient, ApolloProvider, InMemoryCache } from "@apollo/client";
+import { CartProvider } from "./shoppingcart/CartContext";
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
+const client = new ApolloClient({
+  uri: "/graphql/",
+  cache: new InMemoryCache(),
+});
+
+ReactDOM.render(
   <React.StrictMode>
-    <App />
-  </React.StrictMode>
+    <ApolloProvider client={client}>
+      <CartProvider>
+        <Router />
+      </CartProvider>
+    </ApolloProvider>
+  </React.StrictMode>,
+  document.getElementById("root")
 );
 
 // If you want to start measuring performance in your app, pass a function
